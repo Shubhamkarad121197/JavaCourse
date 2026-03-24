@@ -1,34 +1,30 @@
-class TypeConversion{
+class TypeConversion {
     public static void main(String[] args) {
-        byte b=127;
-        int a=b;
-          System.out.println(a); //127
-        int val=127;
-        // byte k=val; //incompatiable types
 
-       
-        byte k= (byte)val;
-        System.out.println(k);//127
+        // Implicit Conversion
+        byte b = 127;
+        int a = b;
+        System.out.println("Implicit: " + a);
 
-        int val1=257;
-        // byte k=val; //incompatiable types
+        // Explicit Casting
+        int val = 127;
+        byte k = (byte) val;
+        System.out.println("Casting: " + k);
 
-       
-        byte k1= (byte)val1;
-        System.out.println(k1);//1 //Due to outof range 
+        // Overflow Example
+        int val1 = 257;
+        byte k1 = (byte) val1;
+        System.out.println("Overflow: " + k1);
 
-         float f=5.6f;
-        int i=(int) f;
-        System.err.println(i); //5
+        // Float to Int
+        float f = 5.6f;
+        int i = (int) f;
+        System.out.println("Float to Int: " + i);
 
-
-        //Type Promotion
-
-        byte b1=10;
-        byte b2=30;
-
-        int result=b1*b2;
-
-        System.err.println(result); //300
+        // Type Promotion
+        byte b1 = 10;
+        byte b2 = 30;
+        int result = b1 * b2;
+        System.out.println("Type Promotion: " + result);
     }
 }
