@@ -1,106 +1,206 @@
-public class StringEverything {
+public class StringEveryThing {
 
     public static void main(String[] args) {
 
-        // 1. String Creation
-        String s1 = "Hello"; // SCP
-        String s2 = new String("Hello"); // Heap
+        // ================================
+        // 1. STRING CREATION
+        // ================================
+
+        String s1 = "Hello"; 
+        // Stored in String Constant Pool (SCP)
+
+        String s2 = new String("Hello"); 
+        // Creates a new object in Heap memory
+
         char[] arr = {'J', 'a', 'v', 'a'};
         String s3 = new String(arr);
+        // Creating string from character array
 
         System.out.println("String Creation:");
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
 
-        // 2. Immutability
+
+        // ================================
+        // 2. IMMUTABILITY
+        // ================================
+
         String str = "Hello";
-        str.concat(" World");
+        str.concat(" World"); 
+        // concat() creates new string but does NOT modify original
+
         System.out.println("\nImmutability:");
-        System.out.println(str); // Hello
+        System.out.println(str); // Output: Hello
 
-        // 3. Length
+
+        // ================================
+        // 3. LENGTH
+        // ================================
+
         System.out.println("\nLength:");
-        System.out.println(str.length());
+        System.out.println(str.length()); 
+        // Returns number of characters
 
-        // 4. Compare
+
+        // ================================
+        // 4. COMPARISON
+        // ================================
+
         System.out.println("\nComparison:");
-        System.out.println(str.equals("Hello"));
-        System.out.println(str.equalsIgnoreCase("hello"));
-        System.out.println(str.compareTo("Hi"));
+        System.out.println(str.equals("Hello")); 
+        // true (value comparison)
 
-        // 5. Access Characters
+        System.out.println(str.equalsIgnoreCase("hello")); 
+        // true (ignores case)
+
+        System.out.println(str.compareTo("Hi")); 
+        // compares lexicographically
+
+
+        // ================================
+        // 5. ACCESS CHARACTERS
+        // ================================
+
         System.out.println("\nCharacter Access:");
-        System.out.println(str.charAt(0));
+        System.out.println(str.charAt(0)); 
+        // Returns character at index
 
-        // 6. Substring
+
+        // ================================
+        // 6. SUBSTRING
+        // ================================
+
         System.out.println("\nSubstring:");
-        System.out.println(str.substring(1, 4));
+        System.out.println(str.substring(1, 4)); 
+        // Extracts part of string (index 1 to 3)
 
-        // 7. Contains
+
+        // ================================
+        // 7. CONTAINS
+        // ================================
+
         System.out.println("\nContains:");
-        System.out.println(str.contains("ell"));
+        System.out.println(str.contains("ell")); 
+        // Checks if substring exists
 
-        // 8. Replace
+
+        // ================================
+        // 8. REPLACE
+        // ================================
+
         System.out.println("\nReplace:");
-        System.out.println(str.replace("l", "x"));
+        System.out.println(str.replace("l", "x")); 
+        // Replaces characters
 
-        // 9. Split
+
+        // ================================
+        // 9. SPLIT
+        // ================================
+
         System.out.println("\nSplit:");
         String sentence = "Java is awesome";
-        String[] words = sentence.split(" ");
+        String[] words = sentence.split(" "); 
+        // Splits string into array
+
         for (String word : words) {
             System.out.println(word);
         }
 
-        // 10. Trim
+
+        // ================================
+        // 10. TRIM
+        // ================================
+
         System.out.println("\nTrim:");
         String spaced = "  Hello  ";
-        System.out.println(spaced.trim());
+        System.out.println(spaced.trim()); 
+        // Removes leading and trailing spaces
 
-        // 11. Case Conversion
+
+        // ================================
+        // 11. CASE CONVERSION
+        // ================================
+
         System.out.println("\nCase Conversion:");
-        System.out.println(str.toUpperCase());
+        System.out.println(str.toUpperCase()); 
         System.out.println(str.toLowerCase());
 
+
+        // ================================
         // 12. == vs equals()
+        // ================================
+
         System.out.println("\n== vs equals:");
+
         String a = "Java";
         String b = "Java";
         String c = new String("Java");
 
-        System.out.println(a == b);       // true
-        System.out.println(a == c);       // false
-        System.out.println(a.equals(c));  // true
+        System.out.println(a == b); 
+        // true → same reference (SCP)
 
-        // 13. String Interning
+        System.out.println(a == c); 
+        // false → different memory
+
+        System.out.println(a.equals(c)); 
+        // true → same value
+
+
+        // ================================
+        // 13. STRING INTERNING
+        // ================================
+
         System.out.println("\nInterning:");
-        String i1 = new String("Hello");
-        String i2 = i1.intern();
-        System.out.println(i2 == "Hello"); // true
 
-        // 14. StringBuilder
+        String i1 = new String("Hello");
+        String i2 = i1.intern(); 
+        // Moves string to SCP
+
+        System.out.println(i2 == "Hello"); 
+        // true
+
+
+        // ================================
+        // 14. STRINGBUILDER
+        // ================================
+
         System.out.println("\nStringBuilder:");
+
         StringBuilder sb = new StringBuilder("Hello");
-        sb.append(" World");
+        sb.append(" World"); 
+        // Efficient modification
+
         System.out.println(sb);
 
-        // 15. Reverse String
+
+        // ================================
+        // 15. REVERSE STRING
+        // ================================
+
         System.out.println("\nReverse String:");
+
         String original = "Java";
         String reversed = "";
 
         for (int i = original.length() - 1; i >= 0; i--) {
-            reversed += original.charAt(i);
+            reversed += original.charAt(i); 
+            // builds reversed string (slow)
         }
+
         System.out.println(reversed);
 
-        // Optimized reverse
+        // Optimized way
         StringBuilder sbRev = new StringBuilder(original);
         System.out.println(sbRev.reverse());
 
-        // 16. Palindrome Check
+
+        // ================================
+        // 16. PALINDROME CHECK
+        // ================================
+
         System.out.println("\nPalindrome:");
+
         String palindrome = "madam";
         String rev = new StringBuilder(palindrome).reverse().toString();
 
@@ -110,33 +210,55 @@ public class StringEverything {
             System.out.println("Not Palindrome");
         }
 
-        // 17. Count Characters
+
+        // ================================
+        // 17. CHARACTER COUNT
+        // ================================
+
         System.out.println("\nCharacter Count:");
+
         String countStr = "hello";
+
         for (int i = 0; i < countStr.length(); i++) {
-            System.out.println(countStr.charAt(i));
+            System.out.println(countStr.charAt(i)); 
+            // prints each character
         }
 
-        // 18. Escape Characters
-        System.out.println("\nEscape Characters:");
-        System.out.println("Hello\nWorld");
-        System.out.println("Hello\tWorld");
-        System.out.println("\"Hello\"");
-        System.out.println("Hello\\World");
 
-        // 19. Performance Example
+        // ================================
+        // 18. ESCAPE CHARACTERS
+        // ================================
+
+        System.out.println("\nEscape Characters:");
+
+        System.out.println("Hello\nWorld"); // new line
+        System.out.println("Hello\tWorld"); // tab
+        System.out.println("\"Hello\"");    // double quote
+        System.out.println("Hello\\World"); // backslash
+
+
+        // ================================
+        // 19. PERFORMANCE TEST
+        // ================================
+
         System.out.println("\nPerformance Test:");
 
         String slow = "";
+
         for (int i = 0; i < 5; i++) {
-            slow += i;
+            slow += i; 
+            // Creates new object each time (slow)
         }
+
         System.out.println("Using String: " + slow);
 
         StringBuilder fast = new StringBuilder();
+
         for (int i = 0; i < 5; i++) {
-            fast.append(i);
+            fast.append(i); 
+            // Efficient (no new object each time)
         }
+
         System.out.println("Using StringBuilder: " + fast);
     }
 }
